@@ -1,6 +1,4 @@
-
-H5 & Native Interactive 
-•一、html中通过js调用java代码
+一、html中通过js调用java代码
 1.Webview 提供两种办法和原生交互：1. 路由拦截 2. 原生和JS 交互。
 android针对原来项目存在通过路由拦截问题，android 部分机型会出现crash 问题，替换掉原来路由拦截的情况，用原生Js 交互方式，来实现。
 2.  测试在2.5.0 反馈一个问题，当webview 加载页面的时候，忽然点返回的键，手机app 崩溃(锤子手机），
