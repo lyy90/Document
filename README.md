@@ -12,6 +12,7 @@
     product_webview.addJavascriptInterface(new YMCJavaScriptInterface(), "controller");
     YMCJavaScriptInterface就是这个接口，controller就是这个接口的别名。
     上面的代码执行之后在html的js中就能通过别名（这里是“controller”）来调用newDemoJavaScriptInterface类中的任何方法
+    
     //android 客户端
     class YMCJavaScriptInterface {
             YMCJavaScriptInterface () {
@@ -36,6 +37,7 @@
     上面的代码在演示如何在js中调用java代码的同时也演示了如何在java中调用js
     
     调用形式：
+    
     1.调用无参构造函数
        mWebView.loadUrl("javascript:wave()");   //直接调用无参构造的函数
      其中wave（）是js中的一个方法，当然你可以把这个方法改成其他的方法，也就是android调用其他的方法。
