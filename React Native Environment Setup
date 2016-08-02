@@ -1,0 +1,227 @@
+1.安装Python
+
+ 
+
+1）下载地址 https://www.python.org/downloads/release/python-2711/ 
+
+ 
+
+  建议安装2.7.11版本，3.x以上版本不支持。
+
+ 
+
+  我安装的路径是：C:\Python27
+
+ 
+
+2）在用户变量中添加：PYTHON_HOME，值：C:\Python27  如下：
+
+ 
+
+ 
+
+3）在系统变量Path中添加两个变量值：%PYTHON_HOME%、%PYTHON_HOME%\Scripts（其他系统的界面会不一样，添加的值都一样）
+
+ 
+
+image
+
+ 
+
+2.安装git
+
+ 
+
+1）下载地址https://git-for-windows.github.io/
+
+ 
+
+image
+
+ 
+
+2）下载完直接安装就可以了。注意到选择组件这一步骤时，要选择上’Use a TrueType font in all console windows’.
+
+ 
+
+image
+
+ 
+
+下一步，选择Windows Command Prompt
+
+ 
+
+image
+
+ 
+
+下一步，选择Checkout Windows-style,commit Unix-style line endings
+
+ 
+
+image
+
+ 
+
+下一步，选择Use Windows’default console window
+
+ 
+
+image
+
+ 
+
+下一步，全选
+
+ 
+
+image
+
+完成安装
+
+3.配置android环境
+
+ 
+
+1）下载Android Studio http://www.android-studio.org/index.php/download    此软件是整个android编程所需要的
+
+2）设置环境变量 ANDROID_HOME
+
+  在环境变量中配置ANDROID_HOME，指定sdk路径，本人配置如下：
+
+image
+
+3）配置环境变量path
+
+在环境变量path中添加2个变量：%ANDROID_HOME%\tools、%ANDROID_HOME%\platform-tools
+
+image
+
+4.安装nodejs
+
+  1）到官网上面下载对应的安装文件 http://nodejs.cn/download/
+
+  image
+
+  默认安装在C:\Program Files\nodejs文件夹下。
+
+  2）建议设置npm镜像以加速后面的过程
+
+   安装成功后，我们在命令行分别输入：
+  npm config set registry https://registry.npm.taobao.org –global
+  npm config set disturl https://npm.taobao.org/dist –global
+image  
+
+  3）配置python版本
+
+  在命令行输入 npm config set python python2.7
+
+  image
+
+4. 安装React Native
+
+  1） 安装React Native有2种方法，第一种直接上github下载解压，第二种用git命令行下载。
+
+  本人用的是git命令方法，第二种。
+
+  ①在github上下载解压：
+
+  在github上下载 https://github.com/facebook/react-native。然后解压，我们解压在E:\ProgramFiles(自行选择路径)。
+
+image
+
+  ②用git命令行下载
+
+  用命令行进入到E:\ProgramFiles目录，此目录更加用户爱好选择。输入此目录后，会自动下载到当前目录下。
+
+  然后输入命令 git clone https://github.com/facebook/react-native.git
+
+
+
+  通过上述两种方法，最终看到我们下载下来的react native
+
+image
+
+2）安装react-native命令行工具
+
+   在命令行输入：npm install -g react-native-cli
+image
+
+3. 创建HelloWord项目
+
+1）创建自己的项目路径，我们创建在 F:\ProjectWorkspace\ReactNative
+
+2）CMD命令行到上面路径下，然后输入命令 react-native init HelloWorld 来创建项目。这里HelloWorld为项目名，读者可根据自己喜好来定义。
+
+  安装过程要等待一段时间，这个过程会下载一些包。
+
+image
+
+3）如果第2步等待完成之后，没有出现错误，可以省略这一步。
+
+在等待了很长的时间后（大概半个小时），出现了错误，一大推错误，如下
+
+F:\ProjectWorkspace\ReactNative>react-native init HelloWorld This will walk you through creating a new React Native project in F:\ProjectWorkspace\ReactNative\HelloWorld Installing react-native package from npm... Setting up new React Native app in F:\ProjectWorkspace\ReactNative\HelloWorld > bufferutil@1.2.1 install F:\ProjectWorkspace\ReactNative\HelloWorld\node_modules\bufferutil > node-gyp rebuild F:\ProjectWorkspace\ReactNative\HelloWorld\node_modules\bufferutil>if not defined npm_config_node_gyp (node "C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin\\..\..\node_modules\node-gyp\bin\node-gyp.js" rebuild )  else (node "" rebuild ) 在此解决方案中一次生成一个项目。若要启用并行生成，请添加“/m”开关。 C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(366,5): warning MSB8003: Could not fi nd WindowsSDKDir variable from the registry. TargetFrameworkVersion or PlatformToolset may be set to an invalid versio n number. [F:\ProjectWorkspace\ReactNative\HelloWorld\node_modules\bufferutil\build\bufferutil.vcxproj] TRACKER : 错误 TRK0005: 未能找到: “CL.exe”。系统找不到指定的文件。 C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(356,5): error MSB6006: “CL.exe”已退出，代 码为 5。 [F:\ProjectWorkspace\ReactNative\HelloWorld\node_modules\bufferutil\build\bufferutil.vcxproj] gyp ERR! build error gyp ERR! stack Error: `C:\Program Files (x86)\MSBuild\14.0\bin\msbuild.exe` failed with exit code: 1 gyp ERR! stack     at ChildProcess.onExit (C:\Program Files\nodejs\node_modules\npm\node_modules\node-gyp\lib\build.js:276:23) gyp ERR! stack     at emitTwo (events.js:106:13) gyp ERR! stack     at ChildProcess.emit (events.js:191:7) gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:204:12) gyp ERR! System Windows_NT 10.0.10586 gyp ERR! command "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js" "rebuild" gyp ERR! cwd F:\ProjectWorkspace\ReactNative\HelloWorld\node_modules\bufferutil gyp ERR! node -v v6.2.0 gyp ERR! node-gyp -v v3.3.1 gyp ERR! not ok npm WARN install:bufferutil@1.2.1 bufferutil@1.2.1 install: `node-gyp rebuild` npm WARN install:bufferutil@1.2.1 Exit status 1
+
+> utf-8-validate@1.2.1 install F:\ProjectWorkspace\ReactNative\HelloWorld\node_modules\utf-8-validate > node-gyp rebuild F:\ProjectWorkspace\ReactNative\HelloWorld\node_modules\utf-8-validate>if not defined npm_config_node_gyp (node "C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin\\..\..\node_modules\node-gyp\bin\node-gyp.js" rebuild )  else (node "" rebuild ) 在此解决方案中一次生成一个项目。若要启用并行生成，请添加“/m”开关。 C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(366,5): warning MSB8003: Could not fi nd WindowsSDKDir variable from the registry. TargetFrameworkVersion or PlatformToolset may be set to an invalid versio n number. [F:\ProjectWorkspace\ReactNative\HelloWorld\node_modules\utf-8-validate\build\validation.vcxproj] TRACKER : 错误 TRK0005: 未能找到: “CL.exe”。系统找不到指定的文件。 C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(356,5): error MSB6006: “CL.exe”已退出，代 码为 5。 [F:\ProjectWorkspace\ReactNative\HelloWorld\node_modules\utf-8-validate\build\validation.vcxproj] gyp ERR! build error gyp ERR! stack Error: `C:\Program Files (x86)\MSBuild\14.0\bin\msbuild.exe` failed with exit code: 1 gyp ERR! stack     at ChildProcess.onExit (C:\Program Files\nodejs\node_modules\npm\node_modules\node-gyp\lib\build.js:276:23) gyp ERR! stack     at emitTwo (events.js:106:13) gyp ERR! stack     at ChildProcess.emit (events.js:191:7) gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:204:12) gyp ERR! System Windows_NT 10.0.10586 gyp ERR! command "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js" "rebuild" gyp ERR! cwd F:\ProjectWorkspace\ReactNative\HelloWorld\node_modules\utf-8-validate gyp ERR! node -v v6.2.0 gyp ERR! node-gyp -v v3.3.1 gyp ERR! not ok npm WARN install:utf-8-validate@1.2.1 utf-8-validate@1.2.1 install: `node-gyp rebuild` npm WARN install:utf-8-validate@1.2.1 Exit status 1 HelloWorld@0.0.1 F:\ProjectWorkspace\ReactNative\HelloWorld `-- react@15.1.0 npm WARN optional Skipping failed optional dependency /chokidar/fsevents: npm WARN notsup Not compatible with your operating system or architecture: fsevents@1.0.12 To run your app on iOS: cd F:\ProjectWorkspace\ReactNative\HelloWorld react-native run-ios - or - Open F:\ProjectWorkspace\ReactNative\HelloWorld\ios\HelloWorld.xcodeproj in Xcode Hit the Run button To run your app on Android: Have an Android emulator running (quickest way to get started), or a device connected cd F:\ProjectWorkspace\ReactNative\HelloWorld react-native run-android
+
+  这堆错误主要是说没有安装C++的命令行环境。而本人经过了2天的时间才解决的这个问题，虽然这个问题看起来比较简单。
+
+  解决方法如下：
+
+  通过 https://github.com/nodejs/node-gyp#installation 可知，我们首先要安装VS2015、
+
+  注意的是在安装VS2015的过程中需要选上Common Tools for Visual C++的选项，因为默认是不选择的。这里说明默认不安装https://blogs.msdn.microsoft.com/vcblog/2015/07/24/setup-changes-in-visual-studio-2015-affecting-c-developers/
+
+  如果你已经安装了VS2015，那么你首先打开VS，然后新建一个C++项目，选择安装，如下：
+
+  image
+
+ 
+
+  安装时，会提示选择安装C++，如下：
+
+ 
+
+  image
+
+ 
+
+ 
+
+ 
+
+  最后吧npm的vs版本设置成2015。打开命令行，输入 npm config set msvs_version 2015
+
+ 
+
+  image
+
+ 
+
+  这样，再次运行 react-native init HelloWorld 不会报错了。
+
+ 
+
+
+  运行之前，为了确保小概率出错，请删除原来的HelloWorld文件夹。
+
+ 
+
+
+  注意一点的是，如果看到命令不断停留在 Installing react-native package from npm… ，请按回车键，会自动运行。此处可能为一个bug。
+
+ 
+
+  image
+
+ 
+
+  可以看到大小有105M
+
+ 
+
+  image
+
+到此，我们成功安装React Native。
