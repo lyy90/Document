@@ -6,6 +6,7 @@
 2. WebView和js的交互包含两方面，一是在html中通过js调用安卓的java代码；二是在安卓java代码中调用js。
 
 一、html中通过js调用java代码
+    
     js中调用java代码其实就记住一点，webview设置一个和js交互的接口（注意这里只是一般的意思，并不是java中接口的含义），
     这个接口其实是一个一般的类，同时为这个接口取一个别名。这个过程如下：
     product_webview.addJavascriptInterface(new YMCJavaScriptInterface(), "controller");
@@ -20,6 +21,7 @@
                    mHandler.post(new Runnable() {
                           public void run() {
                           }});}}
+                          
     //js调用原生APP分享      js端
      function appShareProduct() {
      if ("<%= wx.Tool.ToolBox.GetMobileRequestType()%>"== "<%=wx.Core.MobileRequestType.AndroidSkbApp %>") {
@@ -30,11 +32,14 @@
      }}
      
 二、android调用js
+
     上面的代码在演示如何在js中调用java代码的同时也演示了如何在java中调用js
+    
     调用形式：
     1.调用无参构造函数
        mWebView.loadUrl("javascript:wave()");   //直接调用无参构造的函数
      其中wave（）是js中的一个方法，当然你可以把这个方法改成其他的方法，也就是android调用其他的方法。
+     
     2.调用有参构造函数
       product_webview.addJavascriptInterface(new YMCJavaScriptInterface(), "controller");
       function wave(String value) {return value;}
